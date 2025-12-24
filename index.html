@@ -83,10 +83,10 @@ footer{
 <div class="container">
 <h2>Become a Service Partner</h2>
 
-<form id="partnerForm"
+<form 
 action="https://docs.google.com/forms/d/e/1FAIpQLSdLhybSI8UGXB6J2SWYSMSTHkAJmJv5YtYlnu_B6faLemmAow/formResponse"
-method="POST"
-target="hidden_iframe">
+method="POST">
+
 
 <input name="entry.1176094603" required placeholder="Full Name">
 <input name="entry.1392364085" required placeholder="Mobile Number">
@@ -160,7 +160,6 @@ target="hidden_iframe">
 <button type="submit">Register Now</button>
 </form>
 
-<iframe name="hidden_iframe" style="display:none;"></iframe>
 
 <div class="success" id="successMsg">
 ✅ Registration Successful!  
@@ -173,14 +172,9 @@ target="hidden_iframe">
 © 2025 OneCall Home Services. All Rights Reserved.
 </footer>
 
-<script>
-document.getElementById("partnerForm").addEventListener("submit", function(){
-  document.getElementById("successMsg").style.display="block";
-  setTimeout(()=>this.reset(),2000);
-});
-</script>
 
 
 </body>
 </html>
+
 
