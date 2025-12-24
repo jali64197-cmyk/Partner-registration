@@ -1,180 +1,163 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Partner Registration | OneCall Home Services</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Register as a service partner with OneCall Home Services. Earn with plumbing, electrician, cleaning, AC repair services.">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;font-family:'Poppins',sans-serif}
+*{box-sizing:border-box;font-family:Poppins}
 body{margin:0;background:#f4f6f8}
-header{
-  background:#0a7cff;
-  color:#fff;
-  padding:20px;
-  text-align:center;
-}
 .container{
-  max-width:520px;
+  max-width:540px;
   background:#fff;
   margin:30px auto;
   padding:25px;
   border-radius:10px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  box-shadow:0 10px 25px rgba(0,0,0,.1)
 }
-h2{text-align:center;margin-bottom:20px}
-label{font-weight:500;display:block;margin-top:14px}
-input,select,textarea{
+label{font-weight:500;margin-top:12px;display:block}
+input,textarea{
   width:100%;
-  padding:12px;
+  padding:10px;
   margin-top:6px;
   border:1px solid #ccc;
-  border-radius:6px;
-  font-size:14px;
+  border-radius:6px
 }
-textarea{resize:none}
-details{
-  margin-top:10px;
-  background:#f7f9fc;
-  padding:10px;
-  border-radius:6px;
-}
-summary{
-  cursor:pointer;
-}
+.checkbox-group label{font-weight:400}
 button{
-  margin-top:22px;
+  margin-top:20px;
   width:100%;
+  padding:14px;
   background:#0a7cff;
   color:#fff;
   border:none;
-  padding:14px;
-  font-size:16px;
   border-radius:8px;
-  cursor:pointer;
+  font-size:16px;
+  cursor:pointer
 }
-button:hover{background:#055fd1}
 .success{
   display:none;
-  text-align:center;
   color:green;
-  margin-top:20px;
-  font-weight:600;
-}
-footer{
   text-align:center;
-  padding:15px;
-  font-size:13px;
-  color:#666;
+  margin-top:15px;
+  font-weight:600
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>OneCall Home Services</h1>
-  <p>Partner Registration</p>
-</header>
-
 <div class="container">
-<h2>Become a Service Partner</h2>
+<h2>Partner Registration</h2>
 
-<form 
-action="https://docs.google.com/forms/d/e/1FAIpQLSdLhybSI8UGXB6J2SWYSMSTHkAJmJv5YtYlnu_B6faLemmAow/formResponse"
-method="POST">
+<form id="partnerForm">
 
+<label>Full Name</label>
+<input id="name" required>
 
-<input name="entry.1176094603" required placeholder="Full Name">
-<input name="entry.1392364085" required placeholder="Mobile Number">
-<input name="entry.718987834" placeholder="Email">
-<input name="entry.762471026" required placeholder="City / Area">
+<label>Mobile Number</label>
+<input id="mobile" required>
 
-<label>Select Services (You can choose multiple)</label>
+<label>City</label>
+<input id="city" required>
 
-<label><input type="checkbox" name="entry.378999621" value="Electrician"> Electrician</label>
-<label><input type="checkbox" name="entry.378999621" value="Plumber"> Plumber</label>
-<label><input type="checkbox" name="entry.378999621" value="House Cleaning"> House Cleaning</label>
-<label><input type="checkbox" name="entry.378999621" value="AC Repair"> AC Repair</label>
+<label>Select Services (Multiple)</label>
+<div class="checkbox-group">
+<label><input type="checkbox" value="Electrician"> Electrician</label>
+<label><input type="checkbox" value="Plumber"> Plumber</label>
+<label><input type="checkbox" value="Tile Work"> Tile Work</label>
+<label><input type="checkbox" value="Civil Work"> Civil Work</label>
+<label><input type="checkbox" value="Furniture Work"> Furniture Work</label>
+<label><input type="checkbox" value="Painting"> Painting</label>
+</div>
 
-<label><input type="checkbox" name="entry.378999621" value="Carpenter / Furniture Work"> Carpenter / Furniture Work</label>
-<label><input type="checkbox" name="entry.378999621" value="Furniture Polish"> Furniture Polish</label>
-<label><input type="checkbox" name="entry.378999621" value="Tile Work"> Tile Work</label>
-<label><input type="checkbox" name="entry.378999621" value="Civil Work"> Civil Work</label>
-<label><input type="checkbox" name="entry.378999621" value="Painting"> Painting</label>
-<label><input type="checkbox" name="entry.378999621" value="POP / False Ceiling"> POP / False Ceiling</label>
-<label><input type="checkbox" name="entry.378999621" value="Modular Kitchen"> Modular Kitchen</label>
-<label><input type="checkbox" name="entry.378999621" value="Waterproofing"> Waterproofing</label>
-<label><input type="checkbox" name="entry.378999621" value="Aluminium / Glass Work"> Aluminium / Glass Work</label>
-<label><input type="checkbox" name="entry.378999621" value="Other"> Other</label>
+<label>Working Areas</label>
+<div class="checkbox-group">
+<label><input type="checkbox" value="MP Nagar"> MP Nagar</label>
+<label><input type="checkbox" value="Arera Colony"> Arera Colony</label>
+<label><input type="checkbox" value="Old Bhopal"> Old Bhopal</label>
+<label><input type="checkbox" value="Kolar Road"> Kolar Road</label>
+</div>
 
+<label>Upload Photo</label>
+<input type="file" id="photo" accept="image/*" required>
 
+<label>Upload Aadhaar / ID</label>
+<input type="file" id="aadhaar" accept="image/*,application/pdf" required>
 
-<!-- 🔥 WORKING AREA SECTION -->
-
-<label>Working Areas in Bhopal</label>
-
-<details>
-  <summary><strong>Zone 1 – New Bhopal</strong></summary>
-  <label><input type="checkbox" name="entry.1019480643" value="MP Nagar"> MP Nagar</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Arera Colony"> Arera Colony</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Shivaji Nagar"> Shivaji Nagar</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Bittan Market"> Bittan Market</label>
-</details>
-
-<details>
-  <summary><strong>Zone 2 – Old Bhopal</strong></summary>
-  <label><input type="checkbox" name="entry.1019480643" value="Chowk Bazaar"> Chowk Bazaar</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Itwara"> Itwara</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Peer Gate"> Peer Gate</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Jahangirabad"> Jahangirabad</label>
-</details>
-
-<details>
-  <summary><strong>Zone 3 – Ayodhya Nagar / BHEL</strong></summary>
-  <label><input type="checkbox" name="entry.1019480643" value="Ayodhya Nagar"> Ayodhya Nagar</label>
-  <label><input type="checkbox" name="entry.1019480643" value="BHEL"> BHEL</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Govindpura"> Govindpura</label>
-</details>
-
-<details>
-  <summary><strong>Zone 4 – Kolar Road</strong></summary>
-  <label><input type="checkbox" name="entry.1019480643" value="Kolar Road"> Kolar Road</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Chuna Bhatti"> Chuna Bhatti</label>
-  <label><input type="checkbox" name="entry.1019480643" value="Gulmohar"> Gulmohar</label>
-</details>
-
-<input name="entry.237106726" placeholder="Experience (Years)">
-
-<select name="entry.660289167">
-  <option value="Full Time">Full Time</option>
-  <option value="Part Time">Part Time</option>
-  <option value="Weekend Only">Weekend Only</option>
-</select>
-
-<textarea name="entry.1181202655" placeholder="About your work"></textarea>
-
-<button type="submit">Register Now</button>
+<button type="submit">Register</button>
 </form>
 
-
 <div class="success" id="successMsg">
-✅ Registration Successful!  
-<br>Our team will contact you shortly.
+✅ Registration successful
+</div>
 </div>
 
-</div>
+<!-- 🔥 FIREBASE + JS (FINAL FIXED) -->
+<script type="module">
 
-<footer>
-© 2025 OneCall Home Services. All Rights Reserved.
-</footer>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-storage.js";
 
+/* 🔑 TUMHARA FIREBASE CONFIG (AS-IS) */
+const firebaseConfig = {
+  apiKey: "AIzaSyCBWFoSbByYhp4iElmo01KB1NEBgaCWCbk",
+  authDomain: "onecall-partner-registration.firebaseapp.com",
+  projectId: "onecall-partner-registration",
+  storageBucket: "onecall-partner-registration.firebasestorage.app",
+  messagingSenderId: "158745534242",
+  appId: "1:158745534242:web:6ae3edc6be64e2f4634f7b"
+};
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+document.getElementById("partnerForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+
+  /* ✅ FIXED INPUT READ */
+  const name = document.getElementById("name").value;
+  const mobile = document.getElementById("mobile").value;
+  const city = document.getElementById("city").value;
+
+  const services = [...document.querySelectorAll(".checkbox-group:nth-of-type(1) input:checked")].map(i=>i.value);
+  const areas = [...document.querySelectorAll(".checkbox-group:nth-of-type(2) input:checked")].map(i=>i.value);
+
+  const photoFile = document.getElementById("photo").files[0];
+  const aadhaarFile = document.getElementById("aadhaar").files[0];
+
+  const photoRef = ref(storage, "photos/"+Date.now()+"_"+photoFile.name);
+  const aadhaarRef = ref(storage, "aadhaar/"+Date.now()+"_"+aadhaarFile.name);
+
+  await uploadBytes(photoRef, photoFile);
+  await uploadBytes(aadhaarRef, aadhaarFile);
+
+  const photoURL = await getDownloadURL(photoRef);
+  const aadhaarURL = await getDownloadURL(aadhaarRef);
+
+  await addDoc(collection(db,"partners"),{
+    name,
+    mobile,
+    city,
+    services,
+    areas,
+    photoURL,
+    aadhaarURL,
+    createdAt: new Date()
+  });
+
+  document.getElementById("successMsg").style.display="block";
+  e.target.reset();
+});
+</script>
 
 </body>
 </html>
+
 
 
