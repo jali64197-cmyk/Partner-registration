@@ -1,50 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Partner Registration | OneCall Home Services</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;font-family:Poppins}
-body{margin:0;background:#f4f6f8}
+body{
+  margin:0;
+  font-family:Poppins;
+  background:linear-gradient(135deg,#0a7cff,#00c6ff);
+  padding:20px;
+}
 .container{
-  max-width:540px;
+  max-width:1000px;
+  margin:auto;
   background:#fff;
-  margin:30px auto;
-  padding:25px;
-  border-radius:10px;
-  box-shadow:0 10px 25px rgba(0,0,0,.1)
+  border-radius:14px;
+  padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
-label{font-weight:500;margin-top:12px;display:block}
-input,textarea{
+h2{text-align:center;margin-bottom:5px}
+.subtitle{text-align:center;color:#666;margin-bottom:25px}
+
+label{font-weight:500;margin-top:14px;display:block}
+input,select,textarea{
   width:100%;
-  padding:10px;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ddd;
   margin-top:6px;
-  border:1px solid #ccc;
-  border-radius:6px
 }
-.checkbox-group label{font-weight:400}
-button{
-  margin-top:20px;
-  width:100%;
+textarea{resize:none}
+
+.section{margin-top:25px}
+
+.accordion{
+  border:1px solid #e0e0e0;
+  border-radius:10px;
+  margin-top:10px;
+  overflow:hidden;
+}
+.accordion-header{
   padding:14px;
+  background:#f7f9fc;
+  cursor:pointer;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+}
+.accordion-content{
+  display:none;
+  padding:15px;
+}
+.checkbox-group label{
+  font-weight:400;
+  display:block;
+  margin:6px 0;
+}
+
+button{
+  margin-top:30px;
+  width:100%;
+  padding:16px;
+  font-size:17px;
   background:#0a7cff;
   color:#fff;
   border:none;
-  border-radius:8px;
-  font-size:16px;
-  cursor:pointer
+  border-radius:10px;
+  cursor:pointer;
 }
-.success{
-  display:none;
-  color:green;
-  text-align:center;
-  margin-top:15px;
-  font-weight:600
-}
+button:hover{background:#055fd1}
 </style>
 </head>
 
@@ -52,112 +80,245 @@ button{
 
 <div class="container">
 <h2>Partner Registration</h2>
+<p class="subtitle">Register as a service partner with OneCall</p>
 
 <form id="partnerForm">
 
+<!-- BASIC DETAILS -->
 <label>Full Name</label>
 <input id="name" required>
 
 <label>Mobile Number</label>
 <input id="mobile" required>
 
+<label>Email</label>
+<input id="email">
+
 <label>City</label>
-<input id="city" required>
+<input id="city" value="Bhopal" readonly>
 
-<label>Select Services (Multiple)</label>
-<div class="checkbox-group">
-<label><input type="checkbox" value="Electrician"> Electrician</label>
-<label><input type="checkbox" value="Plumber"> Plumber</label>
-<label><input type="checkbox" value="Tile Work"> Tile Work</label>
-<label><input type="checkbox" value="Civil Work"> Civil Work</label>
-<label><input type="checkbox" value="Furniture Work"> Furniture Work</label>
-<label><input type="checkbox" value="Painting"> Painting</label>
+<!-- SERVICES -->
+<div class="section">
+<h3>Services You Provide (Select all)</h3>
+
+<div class="accordion">
+  <div class="accordion-header">⚡ Electrician <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="Electrician"> Electrician</label>
+  </div>
 </div>
 
-<label>Working Areas</label>
-<div class="checkbox-group">
-<label><input type="checkbox" value="MP Nagar"> MP Nagar</label>
-<label><input type="checkbox" value="Arera Colony"> Arera Colony</label>
-<label><input type="checkbox" value="Old Bhopal"> Old Bhopal</label>
-<label><input type="checkbox" value="Kolar Road"> Kolar Road</label>
+<div class="accordion">
+  <div class="accordion-header">🚰 Plumber <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="Plumber"> Plumber</label>
+  </div>
 </div>
 
-<label>Upload Photo</label>
-<input type="file" id="photo" accept="image/*" required>
+<div class="accordion">
+  <div class="accordion-header">❄️ AC Services <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="AC Repair"> AC Repair</label>
+    <label><input type="checkbox" class="service" value="AC Installation"> AC Installation</label>
+    <label><input type="checkbox" class="service" value="AC Gas Refilling"> AC Gas Refilling</label>
+  </div>
+</div>
 
-<label>Upload Aadhaar / ID</label>
-<input type="file" id="aadhaar" accept="image/*,application/pdf" required>
+<div class="accordion">
+  <div class="accordion-header">🧹 Cleaning Services <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="House Cleaning"> House Cleaning</label>
+    <label><input type="checkbox" class="service" value="Bathroom Cleaning"> Bathroom Cleaning</label>
+    <label><input type="checkbox" class="service" value="Kitchen Cleaning"> Kitchen Cleaning</label>
+    <label><input type="checkbox" class="service" value="Sofa Cleaning"> Sofa / Carpet Cleaning</label>
+    <label><input type="checkbox" class="service" value="Water Tank Cleaning"> Water Tank Cleaning</label>
+  </div>
+</div>
 
-<button type="submit">Register</button>
+<div class="accordion">
+  <div class="accordion-header">🪚 Carpenter / Furniture <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="Carpenter"> Carpenter</label>
+    <label><input type="checkbox" class="service" value="Furniture Work"> Furniture Work</label>
+    <label><input type="checkbox" class="service" value="Furniture Polish"> Furniture Polish</label>
+    <label><input type="checkbox" class="service" value="Modular Kitchen"> Modular Kitchen</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">🧱 Civil / Tile / Mason <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="Tile Work"> Tile Work</label>
+    <label><input type="checkbox" class="service" value="Marble Granite Work"> Marble / Granite Work</label>
+    <label><input type="checkbox" class="service" value="Civil Work"> Civil Work</label>
+    <label><input type="checkbox" class="service" value="Mason"> Mason (Mistri)</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">🎨 Paint / POP / Ceiling <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="Interior Painting"> Interior Painting</label>
+    <label><input type="checkbox" class="service" value="Exterior Painting"> Exterior Painting</label>
+    <label><input type="checkbox" class="service" value="POP Ceiling"> POP / False Ceiling</label>
+    <label><input type="checkbox" class="service" value="Gypsum Ceiling"> Gypsum Ceiling</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">🪟 Aluminium / Glass <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="Aluminium Work"> Aluminium Work</label>
+    <label><input type="checkbox" class="service" value="Glass Work"> Glass Work</label>
+    <label><input type="checkbox" class="service" value="Aluminium Glass Partition"> Aluminium / Glass Partition</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">🧰 Other Services <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="service" value="Waterproofing"> Waterproofing</label>
+    <label><input type="checkbox" class="service" value="Welding"> Welding</label>
+    <label><input type="checkbox" class="service" value="Fabrication Work"> Fabrication Work</label>
+    <label><input type="checkbox" class="service" value="Pest Control"> Pest Control</label>
+  </div>
+</div>
+</div>
+
+<!-- AREAS -->
+<div class="section">
+<h3>Working Areas in Bhopal (Select all)</h3>
+
+<div class="accordion">
+  <div class="accordion-header">New Bhopal <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="area" value="MP Nagar"> MP Nagar</label>
+    <label><input type="checkbox" class="area" value="Arera Colony"> Arera Colony</label>
+    <label><input type="checkbox" class="area" value="Shivaji Nagar"> Shivaji Nagar</label>
+    <label><input type="checkbox" class="area" value="Bittan Market"> Bittan Market</label>
+    <label><input type="checkbox" class="area" value="Shahpura"> Shahpura</label>
+    <label><input type="checkbox" class="area" value="Gulmohar"> Gulmohar</label>
+    <label><input type="checkbox" class="area" value="Chuna Bhatti"> Chuna Bhatti</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Old Bhopal <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="area" value="Chowk Bazaar"> Chowk Bazaar</label>
+    <label><input type="checkbox" class="area" value="Itwara"> Itwara</label>
+    <label><input type="checkbox" class="area" value="Peer Gate"> Peer Gate</label>
+    <label><input type="checkbox" class="area" value="Jahangirabad"> Jahangirabad</label>
+    <label><input type="checkbox" class="area" value="Tallaiya"> Tallaiya</label>
+    <label><input type="checkbox" class="area" value="Budhwara"> Budhwara</label>
+    <label><input type="checkbox" class="area" value="Qazi Camp"> Qazi Camp</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">North Bhopal <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="area" value="Ayodhya Nagar"> Ayodhya Nagar</label>
+    <label><input type="checkbox" class="area" value="BHEL"> BHEL</label>
+    <label><input type="checkbox" class="area" value="Govindpura"> Govindpura</label>
+    <label><input type="checkbox" class="area" value="Piplani"> Piplani</label>
+    <label><input type="checkbox" class="area" value="Anand Nagar"> Anand Nagar</label>
+    <label><input type="checkbox" class="area" value="Indrapuri"> Indrapuri</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">South / Kolar Side <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="area" value="Kolar Road"> Kolar Road</label>
+    <label><input type="checkbox" class="area" value="Mandakini"> Mandakini</label>
+    <label><input type="checkbox" class="area" value="Danish Nagar"> Danish Nagar</label>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Nearby Areas <span>+</span></div>
+  <div class="accordion-content checkbox-group">
+    <label><input type="checkbox" class="area" value="Misrod"> Misrod</label>
+    <label><input type="checkbox" class="area" value="Ratibad"> Ratibad</label>
+    <label><input type="checkbox" class="area" value="Hoshangabad Road"> Hoshangabad Road</label>
+    <label><input type="checkbox" class="area" value="Sehore Road"> Sehore Road</label>
+  </div>
+</div>
+</div>
+
+<label>Experience (Years)</label>
+<input id="experience">
+
+<label>Availability</label>
+<select id="availability">
+  <option>Full Time</option>
+  <option>Part Time</option>
+  <option>Weekend Only</option>
+</select>
+
+<label>Your Rate Card</label>
+<textarea id="rate" placeholder="Example: Electrician ₹500/visit, AC Service ₹1200"></textarea>
+
+<button type="submit">Continue to Document Upload</button>
+
 </form>
-
-<div class="success" id="successMsg">
-✅ Registration successful
-</div>
 </div>
 
-<!-- 🔥 FIREBASE + JS (FINAL FIXED) -->
-<script type="module">
+<script>
+// ACCORDION
+document.querySelectorAll(".accordion-header").forEach(header=>{
+  header.addEventListener("click",()=>{
+    const content = header.nextElementSibling;
+    const icon = header.querySelector("span");
+    const isOpen = content.style.display === "block";
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-storage.js";
+    document.querySelectorAll(".accordion-content").forEach(c=>c.style.display="none");
+    document.querySelectorAll(".accordion-header span").forEach(s=>s.innerText="+");
 
-/* 🔑 TUMHARA FIREBASE CONFIG (AS-IS) */
-const firebaseConfig = {
-  apiKey: "AIzaSyCBWFoSbByYhp4iElmo01KB1NEBgaCWCbk",
-  authDomain: "onecall-partner-registration.firebaseapp.com",
-  projectId: "onecall-partner-registration",
-  storageBucket: "onecall-partner-registration.firebasestorage.app",
-  messagingSenderId: "158745534242",
-  appId: "1:158745534242:web:6ae3edc6be64e2f4634f7b"
-};
+    if(!isOpen){
+      content.style.display="block";
+      if(icon) icon.innerText="−";
+    }
+  });
+});
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const storage = getStorage(app);
-
-document.getElementById("partnerForm").addEventListener("submit", async (e)=>{
+// SUBMIT — SEND DATA TO SHEET + ALWAYS REDIRECT
+document.getElementById("partnerForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  /* ✅ FIXED INPUT READ */
-  const name = document.getElementById("name").value;
-  const mobile = document.getElementById("mobile").value;
-  const city = document.getElementById("city").value;
+  const data = {
+    name: document.getElementById("name").value,
+    mobile: document.getElementById("mobile").value,
+    email: document.getElementById("email").value,
+    city: document.getElementById("city").value,
+    services: [...document.querySelectorAll('.service:checked')].map(x=>x.value).join(", "),
+    areas: [...document.querySelectorAll('.area:checked')].map(x=>x.value).join(", "),
+    experience: document.getElementById("experience").value,
+    availability: document.getElementById("availability").value,
+    rate: document.getElementById("rate").value
+  };
 
-  const services = [...document.querySelectorAll(".checkbox-group:nth-of-type(1) input:checked")].map(i=>i.value);
-  const areas = [...document.querySelectorAll(".checkbox-group:nth-of-type(2) input:checked")].map(i=>i.value);
-
-  const photoFile = document.getElementById("photo").files[0];
-  const aadhaarFile = document.getElementById("aadhaar").files[0];
-
-  const photoRef = ref(storage, "photos/"+Date.now()+"_"+photoFile.name);
-  const aadhaarRef = ref(storage, "aadhaar/"+Date.now()+"_"+aadhaarFile.name);
-
-  await uploadBytes(photoRef, photoFile);
-  await uploadBytes(aadhaarRef, aadhaarFile);
-
-  const photoURL = await getDownloadURL(photoRef);
-  const aadhaarURL = await getDownloadURL(aadhaarRef);
-
-  await addDoc(collection(db,"partners"),{
-    name,
-    mobile,
-    city,
-    services,
-    areas,
-    photoURL,
-    aadhaarURL,
-    createdAt: new Date()
+  // fire-and-forget (CORS safe)
+  fetch("https://script.google.com/macros/s/AKfycbxGMy-74UwsTyOLgCBqq_202vm_iPVAJSe4D37vgGDlfj0s9htRV2cnN5Ud4TSDl8I4ag/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {"Content-Type":"application/json"},
+    mode: "no-cors"
   });
 
-  document.getElementById("successMsg").style.display="block";
-  e.target.reset();
+  // redirect to document upload form
+  window.location.href =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfbjhqLXS-zu3j1mUlDVbSg3Fvww0d9VroVgDF-7OZHcU6-kQ/viewform"+
+  "?entry.244828251="+encodeURIComponent(data.name)+
+  "&entry.1013894119="+encodeURIComponent(data.mobile);
 });
 </script>
 
 </body>
-</html>
+  </html>
+
+  
 
 
 
